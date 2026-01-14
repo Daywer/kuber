@@ -1,0 +1,21 @@
+name: Deploy to Kubernetes
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Check cluster access
+        run: kubectl get ns
+
+     # - name: Apply manifests
+    #    run: |
+     #     kubectl apply -f k8s/
+
