@@ -1,4 +1,4 @@
-name: ARC Runner Smoke Test
+name: ARC Runner Minimal Test
 
 on:
   workflow_dispatch:
@@ -7,17 +7,7 @@ jobs:
   test:
     runs-on: self-hosted
     steps:
-      - name: Who am I
-        run: |
-          echo "Runner hostname:"
-          hostname
-          echo
-          echo "User:"
-          whoami
-          echo
-          echo "Kernel:"
-          uname -a
-
-      - name: Environment variables
-        run: |
-          env | sort
+      - run: |
+          echo "Runner is working"
+          echo "Hostname: $(hostname)"
+          echo "User: $(whoami)"
