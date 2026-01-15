@@ -1,13 +1,8 @@
-name: ARC Runner Minimal Test
-
-on:
-  workflow_dispatch:
-
 jobs:
-  test:
+  deploy:
     runs-on: self-hosted
     steps:
-      - run: |
-          echo "Runner is working"
-          echo "Hostname: $(hostname)"
-          echo "User: $(whoami)"
+      - uses: actions/checkout@v4
+      - uses: azure/setup-kubectl@v4
+      - run: kubectl get ns
+      - run: kubectl apply -f k8s/
