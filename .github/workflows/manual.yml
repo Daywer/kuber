@@ -26,4 +26,6 @@ jobs:
         run: kubectl get pods -n my
 
       - name: Nodes
-        run: kubectl get nodes
+        run: kubectl get secrets -n my
+
+        
