@@ -25,5 +25,5 @@ jobs:
       - name: Check cluster access
         run: kubectl get pods -n my
 
-      - name: Deploy manifests
-        run: kubectl apply -f k8s/
+      - name: Nodes
+        run: kubectl get nodes
