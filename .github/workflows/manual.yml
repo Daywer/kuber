@@ -23,7 +23,7 @@ jobs:
         run: kubectl version --client
 
       - name: Check cluster access
-      - run: kubectl get pods -n my
+        run: kubectl get pods -n my
 
       - name: Deploy manifests
         run: kubectl apply -f k8s/
