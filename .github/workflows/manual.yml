@@ -26,6 +26,6 @@ jobs:
         run: kubectl get pods -n my
 
       - name: Nodes
-        run: kubectl -f apply k8s/nginx-deploy.yaml -n my
+        run: kubectl apply -f k8s/nginx-deploy.yaml -n my
 
         
