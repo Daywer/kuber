@@ -24,10 +24,3 @@ jobs:
 
       - name: Check cluster access
         run: kubectl get pods -n my
-
-      - name: Nginx Deploy
-        run: kubectl apply -f k8s/nginx-deploy.yaml -n my
-      
-      - name: Service Deploy
-        run: kubectl apply -f k8s/service-nodeport.yaml
-        
