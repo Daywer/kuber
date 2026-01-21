@@ -4,7 +4,7 @@ metadata:
   name: letsencrypt-prod
 spec:
   acme:
-    email: admin@daywer.ru
+    email: daywer@daywer.ru
     server: https://acme-v02.api.letsencrypt.org/directory
     privateKeySecretRef:
       name: letsencrypt-prod
