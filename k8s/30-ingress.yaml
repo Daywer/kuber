@@ -4,32 +4,36 @@ metadata:
   name: sites-ingress
   namespace: my
   annotations:
-    kubernetes.io/ingress.class: nginx
     cert-manager.io/cluster-issuer: letsencrypt-prod
+
+    # ВАЖНО для HTTP-01
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "false"
 spec:
+  ingressClassName: nginx
   tls:
-  - hosts:
-    - test1.daywer.ru
-    - test2.daywer.ru
-    secretName: sites-tls
+    - hosts:
+        - test1.daywer.ru
+        - test2.daywer.ru
+      secretName: sites-tls
   rules:
-  - host: test1.daywer.ru
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: test1
-            port:
-              number: 80
-  - host: test2.daywer.ru
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: test2
-            port:
-              number: 80
+    - host: test1.daywer.ru
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: test1
+                port:
+                  number: 80
+    - host: test2.daywer.ru
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: test2
+                port:
+                  number: 80
